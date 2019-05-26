@@ -1,0 +1,21 @@
+{{nome}}
+<br><br>
+
+{% if (nome=='teste'): %}
+{{"nome eh teste!"}}
+{% else %}
+{{"nome não é teste"}}
+{% endif %}
+
+{% for x in range(var): %}
+    <br>interação: {{x}}
+{% endfor %}
+
+{% macro func(var): %}
+    {% for x in range(var): %}
+        <br>interação: {{x}}
+    {% endfor %}
+{% endmacro %}
+
+<br><br>agora com macro!-->
+{{ func(var*2) }}

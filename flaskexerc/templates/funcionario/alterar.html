@@ -1,0 +1,33 @@
+{% extends "funcionario/base.html" %}
+{% block title %}Alterar{% endblock %}
+{% block content %}  
+
+    <form action="/tratalterar" method="POST">
+        <div class="input-group" style ="display: none;">
+            <span class="input-group-addon" id="basic-addon1">cod</span>
+            <input type="text" class="form-control" placeholder="{{buscar._codFunc}}" name="cod" id="cod" value="{{buscar._codFunc}}" aria-describedby="basic-addon1">
+          </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Nome</span>
+            <input type="text" class="form-control" placeholder="{{buscar._nomeFunc}}" name="nome" id="nome" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">CPF</span>
+            <input type="number" class="form-control" placeholder="{{buscar._cpf}}" name="CPF" id="CPF" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Departamento</span>
+            <select class="form-control" name="coddept" id="coddept">
+                {%for i in range(0, len)%}
+                    <option value="{{lista[i]._codDept}}">{{lista[i]._nome}}</option>
+                {%endfor%}
+            </select>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" placeholder="{{buscar._email}}" name="email" id="email" aria-describedby="basic-addon1">
+          </div>
+          <input type="submit" value="Enviar">
+    </form>
+
+{% endblock %}

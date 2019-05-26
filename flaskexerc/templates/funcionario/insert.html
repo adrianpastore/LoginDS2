@@ -1,0 +1,29 @@
+{% extends "funcionario/base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}  
+
+    <form action="/tratainsert" method="POST">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Nome</span>
+            <input type="text" class="form-control" placeholder="nome" name="nome" id="nome" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">CPF</span>
+            <input type="number" class="form-control" placeholder="045.368.570-60" name="CPF" id="CPF" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Departamento</span>
+            <select class="form-control" name="coddept" id="coddept">
+                {%for i in range(0, len)%}
+                    <option value="{{lista[i]._codDept}}">{{lista[i]._nome}}</option>
+                {%endfor%}
+            </select>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" placeholder="tetahead@gmail.com" name="email" id="email" aria-describedby="basic-addon1">
+          </div>
+          <input type="submit" value="Enviar">
+    </form>
+
+{% endblock %}

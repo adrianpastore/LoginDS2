@@ -1,0 +1,44 @@
+{% extends "funcionario/base.html" %}
+{% block title %}Listar{% endblock %}
+{% block head %}
+	{{ super() }}
+	<style type = text/css>
+	th:tr{ 
+		color: blue; 
+	} 
+	tr:nth-of-type(2n){ 
+		border: 1px solid black; 
+		background-color: rgba(150, 150, 150, 0.5); 
+	} 
+	td{ 
+		padding: 8px 8px; 
+		border: 1px solid black; 
+	}
+	</style>
+{% endblock %}
+{% block content %}  
+	<table style="margin-left: 15px;"> 
+		<th> 
+			<tr style="color: green; ">	 
+			<td>Cod func</td> 
+			<td>CPF</td> 
+			<td>Email</td>
+			<td>Nome</td>
+			</tr> 
+		</th> 
+	{%for i in range(0, len)%} 
+	<tr> 
+		<td>{{lista[i]._codFunc}}</td>
+		<td>{{lista[i]._cpf}}</td>
+		<td>{{lista[i]._email}}</td>
+		<td>{{lista[i]._nomeFunc}}</td>
+		<td>
+			<a href="excluir/{{lista[i]._codFunc}}"><button>Excluir</button></a>
+			<a href="alterar/{{lista[i]._codFunc}}"><button>Alterar</button></a>
+			<a href="busca/{{lista[i]._codFunc}}"><button>Ver detalhes</button></a>
+		</td>
+	</tr> 
+	{%endfor%} 
+	</table> 
+
+{% endblock %}

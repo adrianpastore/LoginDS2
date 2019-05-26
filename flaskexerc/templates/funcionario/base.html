@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href= "{{ url_for('static',filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div id="content">
+      <div class="topnav" id="myTopnav">
+        <ul class="nav navbar-nav">
+          <a href="{{url_for('index')}}">Index</a>
+          <a href="{{url_for('listar')}}">Listar</a>
+          <a href="{{url_for('inserir')}}">Inserir</a>
+          {% if session['logged_in'] %}
+            <a href="{{url_for('logout')}}">Logout</a>
+          {% else %}
+            <a href="{{url_for('logar')}}">Logar</a>
+          {% endif %}
+          </ul>
+          {% if session['logged_in'] %}
+            <ul class="nav navbar-nav navbar-right">
+              <a aria-disabled="true" href="">{% block namelogado %} Olá {{session['nome']}} {% endblock %}</a>
+            </ul>
+          {% endif %}
+    </div>
+    {% block content %}{% endblock %}
+  </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

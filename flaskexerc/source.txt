@@ -1,0 +1,4 @@
+source /home/aluno/flask/venv1/bin/activate
+
+uma rota que recebe um parametro int e imprime os dados de 1 funcionario,
+considerando a classe funcionario e funcionarioDAO do exercicio anterior.

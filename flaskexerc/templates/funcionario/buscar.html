@@ -1,0 +1,42 @@
+{% extends "funcionario/base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+	{{ super() }}
+	<style type = text/css>
+	th:tr{ 
+		color: blue; 
+	} 
+	tr:nth-of-type(2n){ 
+		border: 1px solid black; 
+		background-color: rgba(150, 150, 150, 0.5); 
+	} 
+	td{ 
+		padding: 8px 8px; 
+		border: 1px solid black; 
+	}
+	</style>
+{% endblock %}
+{% block content %}  
+
+<table style="margin-left: 20px;"> 
+<!-- Table headers -->
+	<th> 
+		<tr style="color: green; ">	 
+        <td>Cod func</td>
+        <td>Cod depto</td>
+		<td>CPF</td> 
+        <td>Email</td>
+		<td>Nome</td>
+</tr> 
+	</th> 
+	
+<tr> 
+    <td>{{buscando._codFunc}}</td>
+    <td>{{buscando._deptFunc}}</td>
+   	<td>{{buscando._cpf}}</td>
+	<td>{{buscando._email}}</td>
+	<td>{{buscando._nomeFunc}}</td>
+</tr> 
+</table> 
+
+{% endblock %}
